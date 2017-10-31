@@ -1,0 +1,41 @@
+{% extends 'web/base.html' %}
+
+{% load bootstrap3 %}
+{% block title %}GRNConnect - Static Data{% endblock %}
+{% block content %}
+    <div class="col-md-12">
+        <div class="col-md-12 text-right">
+            <a href="/city/mappings/?{{url_params}}">Back To Mappings</a>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6"><p>Supp City: <label> {{city_mapping.supp_city_name}} {{city_mapping.supp_city_id}}</label></p></div>
+            <div class="col-md-6"><p><label> Supp Destination: {{city_mapping.supp_dest_code}} {{city_mapping.supp_dest_name}}</label></p></div>
+            <div class="col-md-6"><p><label> Supp Country: {{city_mapping.supp_country_code}}</label></p></div>
+            <div class="col-md-6"><p><label> GRN City: {{city_mapping.grn_city_name}}{{city_mapping.supp_city_code}}</label></p></div>
+            <div class="col-md-6"><p><label> GRN Destination: {{city_mapping.grn_dest_name}}{{city_mapping.grn_dest_code}}</label></p></div>
+            <div class="col-md-6"><p><label> GRN Country: {{city_mapping.grn_country_name}}{{city_mapping.grn_country_code}}</label></p></div>
+            <div class="col-md-6"><p><label> Supplier: {{city_mapping.supplier}}</label></p></div>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <th>GRN City Code</th>
+                <th>GRN City Name</th>
+                <th>Destination</th>
+                <th>Country</th>
+                <th>Operations</th>
+            </tr>
+            {% for city in cities %}
+                <tr>
+                    <td>{{city.code}}</td>
+                    <td>{{city.name}}</td>
+                    <td>{{city.dest_code}}, {{city.dest_name}}</td>
+                    <td>{{city.country}}</td>
+                    <td>
+                        <a href="/city/mappings/{{city_mapping.id}}/1/{{city.code}}/?{{url_params}}">Map This City</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>   
+    
+{% endblock %}

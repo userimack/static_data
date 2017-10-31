@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from web import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url('^$', views.home, name="home"),
+    url('^city/mappings/([\w-]+)/$', views.city_mappings, name="city_mappings"),
+    url('^city/mappings/([\w-]+)/([\w-]+)/([\w|\W-]+)/$', views.update_city_status, name="city_mapping_status"),
+    url('^city/mappings/([\w-]+)/([\w-]+)/$', views.update_city_status, name="city_mappings_delete"),
+    url('^city/mappings/$', views.cities, name="cities")
+
+
 ]

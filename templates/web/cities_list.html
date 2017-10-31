@@ -1,0 +1,46 @@
+{% extends 'web/base.html' %}
+
+{% load bootstrap3 %}
+{% block title %}GRNConnect - Static Data{% endblock %}
+{% block content %}
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>GRN City Code</th>
+            <th>GRN City Name</th>
+            <th>Supp City Code</th>
+            <th>Supp City Name</th>
+            <th>Supp Destination</th>
+            <th>Destination Name</th>
+            <th>Country</th>
+            <th>Supplier</th>
+            <th>Operations</th>
+        </tr>
+        {% for city in cities %}
+            <tr>
+                <td>{{city.id}}</td>
+                <td>{{city.grn_city_code}}</td>
+                <td>{{city.grn_city_name}}</td>
+                <td>{{city.supp_city_id}}</td>
+                <td>{{city.supp_city_name}}</td>
+                <td>{{city.supp_dest_code}}{% if city.supp_dest_name and city.supp_dest_code %},{%endif%} {{city.supp_dest_name}}</td>
+                <td>{{city.grn_dest_name}}({{city.grn_dest_code}})</td>
+                <td>{{city.grn_country_name}}</td>
+                <td>{{city.supplier}}</td>
+                <td>
+                    {% if city.grn_city_code %}
+                        <a href="/city/mappings/{{city.id}}/1/{{city.grn_city_code|urlencode}}/?{{request.GET.urlencode}}">Looks Cools</a>
+                    {% endif %}
+                    <a href="/city/mappings/{{city.id}}/?{{request.GET.urlencode}}">Try To Map</a>
+                    <a href="/city/mappings/{{city.id}}/3/?{{request.GET.urlencode}}">Rejected</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div class="text-right">
+        <p>Showing {{cities.start_index}} to {{cities.end_index}} of {{cities.paginator.count}} ({{cities.paginator.num_pages}} Pages)</p>
+        {% bootstrap_pagination cities url="/city/mappings/?{{url_params}}" extra=request.GET.urlencode size="small" %}
+    </div>
+    
+{% endblock %}

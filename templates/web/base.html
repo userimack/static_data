@@ -1,0 +1,42 @@
+{% extends 'bootstrap3/bootstrap3.html' %}
+{% load bootstrap3 %}
+
+{% block bootstrap3_content %}
+    <div class="container">
+        <h1>{% block title %}GRNConnect - Static Data{% endblock %}</h1>
+        <br/>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'cities' %}">Cities</a></li>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Countries</a></li>
+                    <li><a href="#">Room Types</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+        {% block content %}(no content){% endblock %}
+    </div>
+ <style>
+    footer{
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        background-color: #f5f5f5;
+    }
+</style>
+    <footer class="footer text-center">
+        <div class="container">
+            <span class="text-muted">All Rights Reserved @ grnConnect.com</span>
+        </div>
+    </footer>
+{% endblock %}
