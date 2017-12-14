@@ -56,7 +56,7 @@ ROOT_URLCONF = 'static_data.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,12 +77,13 @@ WSGI_APPLICATION = 'static_data.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #  'ENGINE': 'django.db.backends.mysql',
         'NAME': 'staticdata',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'USER': 'mahendra',
+        'PASSWORD': 'mahendra',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '',
     }
 }
 

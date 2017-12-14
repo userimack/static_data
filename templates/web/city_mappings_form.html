@@ -7,15 +7,27 @@
         <div class="col-md-12 text-right">
             <a href="/city/mappings/?{{url_params}}">Back To Mappings</a>
         </div>
-        <div class="col-md-12">
-            <div class="col-md-6"><p>Supp City: <label> {{city_mapping.supp_city_name}} {{city_mapping.supp_city_id}}</label></p></div>
-            <div class="col-md-6"><p><label> Supp Destination: {{city_mapping.supp_dest_code}} {{city_mapping.supp_dest_name}}</label></p></div>
-            <div class="col-md-6"><p><label> Supp Country: {{city_mapping.supp_country_code}}</label></p></div>
-            <div class="col-md-6"><p><label> GRN City: {{city_mapping.grn_city_name}}{{city_mapping.supp_city_code}}</label></p></div>
-            <div class="col-md-6"><p><label> GRN Destination: {{city_mapping.grn_dest_name}}{{city_mapping.grn_dest_code}}</label></p></div>
-            <div class="col-md-6"><p><label> GRN Country: {{city_mapping.grn_country_name}}{{city_mapping.grn_country_code}}</label></p></div>
-            <div class="col-md-6"><p><label> Supplier: {{city_mapping.supplier}}</label></p></div>
+        <div class="col-md-12" title="Suplier" style="font-family: Helvetica; font-size: 12pt; border: 1px solid black;">
+            <div class="col-md-12 text-center"><p><label> Supplier : </label> <b> {{city_mapping.supplier}}</p> </b></div>
+            <div class="col-md-4"><p> <label>Supp City Code :    </label> {{city_mapping.supp_city_id}}</p></div>
+            <div class="col-md-4"><p> <label>Supp City Name : </label> {{city_mapping.supp_city_name}}</p></div>
+            <div class="col-md-4"><p><label> Supp Destination Code :  </label> {{city_mapping.supp_dest_code}}</p></div>
+            <div class="col-md-4"><p><label> Supp Destination Name : </label> {{city_mapping.supp_dest_name}}</p></div>
+            <div class="col-md-4"><p><label> Supp Country Code : </label> {{city_mapping.supp_country_code}}</p></div>
+            <div class="col-md-4"><p><label> Supp Country Name : </label> {{city_mapping.supp_country_name}}</p></div>
+
         </div>
+
+        <div class="col-md-12" title="GRN" style="font-family: Helvetica; font-size: 12pt; border: 1px solid black; padding:5px; margin-top: 1%;">
+            <div class="col-md-4"><p><label> GRN City Code : </label> {{city_mapping.grn_city_code}}</p></div>
+            <div class="col-md-4"><p><label> GRN City Name : </label> {{city_mapping.grn_city_name}}</p></div>
+            <div class="col-md-4"><p><label> GRN Destination Code : </label> {{city_mapping.grn_dest_code}}</p></div>
+            <div class="col-md-4"><p><label> GRN Destination Name : </label> {{city_mapping.grn_dest_name}}</p></div>
+            <div class="col-md-4"><p><label> GRN Country ISO Code : </label> {{city_mapping.grn_country_code}}</p></div>
+            <div class="col-md-4"><p><label> GRN Country Name : </label> {{city_mapping.grn_country_name}}</p></div>
+        </div>
+
+        <div class="col-md-12 text-center"><b>Possible Matches<b></div>
         <table class="table table-bordered">
             <tr>
                 <th>GRN City Code</th>
@@ -36,6 +48,6 @@
                 </tr>
             {% endfor %}
         </table>
-    </div>   
-    
+    </div>
+
 {% endblock %}
