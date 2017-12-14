@@ -1,2 +1,6 @@
-django
-django-bootstrap3
+chardet==3.0.4
+Django==1.11.7
+django-bootstrap3==9.1.0
+django-redis==4.8.0
+pytz==2017.3
+redis==2.10.6
