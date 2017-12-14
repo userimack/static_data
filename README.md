@@ -1,2 +1,2 @@
 # verify_mappings
-Static Data Mappings Veriication App
+Static Data Mappings Verification App
